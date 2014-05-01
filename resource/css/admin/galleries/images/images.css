@@ -1,0 +1,14 @@
+
+.gallery {
+	min-height: 200px;
+}
+
+.thumbnail .caption {
+	font-size: 24px;
+	text-align: center;
+}
+
+.thumbnail .caption span {
+	cursor: pointer;
+}
+

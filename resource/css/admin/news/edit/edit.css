@@ -1,0 +1,17 @@
+.panel-heading {
+	cursor: pointer;
+}
+
+#attachments {
+	min-height: 100px;
+}
+
+#attachments .label {
+	cursor: default;
+	width: 100%;
+}
+
+#gallery .glyphicon-trash,
+#attachments .glyphicon-trash {
+	cursor: pointer;
+}

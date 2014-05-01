@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+	<head>
+		<title>{$meta_title}</title>
+		<meta charset="UTF-8" />
+		<meta name="description" content="{$meta_description}" />
+		<meta name="keywords" content="{$meta_keywords}" />
+		<meta name="author" content="{$meta_author}" />
+	    <link rel="shortcut icon" href="{$favicon}" />
+{if isset($admin) && $admin}
+		<script type="text/javascript" src="lib/min/?g=admin_js"></script>
+		<link type="text/css" rel="stylesheet" media="all" href="lib/min/?g=admin_css" />
+{else}
+		<base href="{$smarty.const._BASE_HREF}" />
+		<script type="text/javascript" src="lib/min/?g=js"></script>
+		<link type="text/css" rel="stylesheet" media="all" href="lib/min/?g=css" />
+{/if}
+{if isset($min_tree_css)}
+		<link type="text/css" rel="stylesheet" media="all" href="lib/min/?g={$min_tree_css}_css" />
+{/if}
+{if isset($min_tree_js)}
+		<script type="text/javascript" src="lib/min/?g={$min_tree_js}_js"></script>
+{/if}
+	</head>
+	<body>
+		{include file=$template}
+	</body>
+</html>

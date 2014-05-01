@@ -1,0 +1,70 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title" data-toggle="collapse" data-target="#aggiungi"><span class="glyphicon glyphicon-chevron-down"></span>Crea nuova Galleria</h3>
+	</div>
+	<div id="aggiungi" class="panel-collapse collapse">
+		<div class="panel-body">
+			<form action="admin-galleries-edit" method="post">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="gallery-add input-group">
+						<span class="input-group-addon">Nome</span>
+						<input type="text" class="form-control" name="name">
+						<span class="input-group-addon">Lingua</span>
+						<select class="form-control" name="lang">
+						{foreach $languages as $language}
+							<option value="{$language.id}">{$language.language}</option>
+						{/foreach}
+						</select>
+						<span class="input-group-addon">Pagina</span>
+						<select class="form-control" name="ref_page">
+							<option value="0">Nessuna</option>
+						{foreach $pages as $page}
+							<option value="{$page.id}">{ucwords($page.name)}</option>
+						{/foreach}
+						</select>
+						<span class="input-group-addon">Tag</span>
+						<input type="text" class="form-control" name="tag" value="">
+						<span class="input-group-btn">
+							<button id="new_gallery" class="btn btn-default" type="submit" value="create">Crea</button>
+						</span>
+					</div>
+				</div>
+			</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title" data-toggle="collapse" data-target="#dizionario"><span class="glyphicon glyphicon-chevron-up"></span>Gallerie presenti</h3>
+	</div>
+	<div id="dizionario" class="panel-collapse collapse in">
+		<div class="panel-body">
+			<div class="row">
+				<div class="col-md-12 legenda">
+					<span class="glyphicon glyphicon-edit" title="Modifica nome"></span> Modifica nome
+					<span class="glyphicon glyphicon-picture" title="Immagini"></span> Immagini
+					<span class="glyphicon glyphicon-file clone" title="Duplica"></span> Duplica
+					<span class="glyphicon glyphicon-trash delete" title="Elimina file"></span> Elimina
+				</div>
+			</div>
+			<br/>
+			<table class="table table-striped table-bordered" cellpadding="0" cellspacing="0" border="0" id="galleries">
+				<thead>
+					<tr>
+						<th>Nome</th>
+						<th># immagini</th>
+						<th>Lingua</th>
+						<th>Pagina</th>
+						<th>Tag</th>
+						<th>Operazioni</th>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

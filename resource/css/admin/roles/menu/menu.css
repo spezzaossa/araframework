@@ -1,0 +1,30 @@
+
+.receiver {
+	display: block;
+	margin: 5px;
+	border: 1px dashed #333;
+	height: 25px;
+	border-radius: 5px;
+}
+
+.receiver.big {
+	height: 60px;
+	width: 120px;
+}
+
+.receiver.highlight {
+	background-color: #99ccff;
+}
+
+.trash {
+	border: 1px dashed #333;
+}
+
+.trash.highlight {
+	border: 1px dashed #C00;
+	color: #C00;
+}
+
+.menu {
+	z-index: 9001;
+}

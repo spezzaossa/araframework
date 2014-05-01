@@ -1,0 +1,60 @@
+<a href="admin-files" class="btn btn-default"><span class="glyphicon glyphicon-arrow-left"></span> Indietro</a>
+<br/><br/>
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title" data-toggle="collapse" data-target="#struttura"><span class="glyphicon glyphicon-chevron-up"></span>Attributi di {$file.filename}</h3>
+	</div>
+	<div id="struttura" class="panel-collapse collapse in">
+		<div class="panel-body">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="meta-add input-group">
+						<span class="input-group-addon">Titolo</span>
+						<input type="text" class="form-control" name="title">
+						<span class="input-group-addon">Testo alternativo</span>
+						<input type="text" class="form-control" name="alt">
+						<span class="input-group-addon">Lingua</span>
+						<select class="form-control" name="lang">
+						{foreach $languages as $language}
+							<option value="{$language.id}">{$language.language}</option>
+						{/foreach}
+						</select>
+						<span class="input-group-btn">
+							<button id="new_meta" class="btn btn-default" type="submit" value="create">Salva</button>
+						</span>
+					</div>
+				</div>
+			</div>
+			{if $file.type == 'Immagine'}
+			<br/>
+			<div class="row">
+				<div class="col-sm-12 col-md-6">
+					<a target="_blank" href="{$smarty.const.MEDIA_FOLDER}{$file.filename}?t={time()}" class="thumbnail">
+						<img src="{$smarty.const.MEDIA_FOLDER}{$file.filename}?t={time()}" class="h200" />
+					</a>
+				</div>
+			</div>
+			{/if}
+			<br/>
+			<div class="row">
+				<div class="col-md-offset-6 col-md-6 legenda">
+					<span class="glyphicon glyphicon-trash delete" title="Elimina attributi"></span> Elimina
+				</div>
+			</div>
+			<br/>
+			<table class="table table-striped table-bordered" cellpadding="0" cellspacing="0" border="0" id="meta">
+				<thead>
+					<tr>
+						<th>Titolo</th>
+						<th>Testo alternativo</th>
+						<th>Lingua</th>
+						<th>Operazioni</th>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+

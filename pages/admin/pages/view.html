@@ -1,0 +1,53 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title" data-toggle="collapse" data-target="#aggiungi-pagina"><span class="glyphicon glyphicon-chevron-down"></span>Aggiungi pagina</h3>
+	</div>
+	<div id="aggiungi-pagina" class="panel-collapse collapse in">
+		<div class="panel-body">
+			<div class="col-md-12">
+				<form action="admin-pages-edit" method="post">
+				<div class="news-add input-group">
+					<span class="input-group-addon">Nome</span>
+					<input type="text" class="form-control" name="name">
+					<span class="input-group-addon">Figlia di</span>
+					<select class="form-control" name="top">
+						<option value="0">(Pagina radice)</option>
+						{include file=$tpl_options pages=$pages tpl_options=$tpl_options depth=0}
+					</select>
+					<span class="input-group-btn">
+						<button id="new_entry" class="btn btn-default" type="submit" value="create">Crea</button>
+					</span>
+				</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title" data-toggle="collapse" data-target="#struttura"><span class="glyphicon glyphicon-chevron-up"></span>Pagine esistenti</h3>
+	</div>
+	<div id="struttura" class="panel-collapse collapse in">
+		<div class="panel-body">
+			<div class="col-md-12 legenda">
+				<span class="glyphicon glyphicon-edit" title="Modifica"></span> Modifica
+				<span class="glyphicon glyphicon-trash delete" title="Elimina"></span> Elimina
+			</div>
+			<br/>
+			<table class="table table-striped table-bordered" cellpadding="0" cellspacing="0" border="0" id="news">
+				<thead>
+					<tr>
+						<th>Nome</th>
+						<th># Alias</th>
+						<th># Contenuti</th>
+						<th>Operazioni</th>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+

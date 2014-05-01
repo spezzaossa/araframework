@@ -1,0 +1,19 @@
+<div class="row images">
+{foreach $images as $image}
+	<div class="col-md-1 col-sm-3 element">
+		<div class="thumbnail" data-toggle="tooltip" title="{$image.filename}" data-image="{$image.id}">
+			<img src="{$smarty.const.MEDIA_FOLDER}th_{$image.filename}" />
+			<div class="caption">
+				<span class="glyphicon glyphicon-plus"></span>
+			</div>
+		</div>
+	</div>
+{/foreach}
+</div>
+<ul class="pagination">
+	<li data-page="1"><a href="#page-1">&laquo;</a></li>
+	{foreach $range as $n}
+	<li {if $n == $page_number}class="active"{/if} data-page="{$n}"><a href="#page-{$n}">{$n}</a></li>
+	{/foreach}
+	<li data-page="{$last}"><a href="#page-{$last}">&raquo;</a></li>
+</ul>

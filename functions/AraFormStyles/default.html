@@ -1,0 +1,44 @@
+{if $field->type() == AraFormField::TYPE_TEXT}
+	{if $field->isMultiline()}
+<textarea name="{$field->name()}" class="{$field->attribute('css')} form-field{if $field->isRequired()} required{/if}"{if $field->attribute('placeholder')} placeholder="{$field->attribute('placeholder')}"{/if}{if $field->attribute('cols')} cols="{$field->attribute('cols')}"{/if}{if $field->attribute('rows')} rows="{$field->attribute('rows')}"{/if}>{$field->value()}</textarea>
+	{else}
+<input name="{$field->name()}" type="text" class="{$field->attribute('css')} form-field{if $field->isRequired()} required{/if}" value="{$field->value()}"{if $field->attribute('placeholder')} placeholder="{$field->attribute('placeholder')}"{/if}/>
+	{/if}
+{elseif $field->type() == AraFormField::TYPE_EMAIL}
+<input name="{$field->name()}" type="text" class="{$field->attribute('css')} form-field email{if $field->isRequired()} required{/if}" value="{$field->value()}"{if $field->attribute('placeholder')} placeholder="{$field->attribute('placeholder')}"{/if}/>
+{elseif $field->type() == AraFormField::TYPE_NUMBER}
+<input name="{$field->name()}" type="text" class="{$field->attribute('css')} form-field number{if $field->isRequired()} required{/if}" value="{$field->value()}"{if $field->attribute('placeholder')} placeholder="{$field->attribute('placeholder')}"{/if}/>
+{elseif $field->type() == AraFormField::TYPE_PHONE}
+<input name="{$field->name()}" type="text" class="{$field->attribute('css')} form-field phone{if $field->isRequired()} required{/if}" value="{$field->value()}"{if $field->attribute('placeholder')} placeholder="{$field->attribute('placeholder')}"{/if}/>
+{elseif $field->type() == AraFormField::TYPE_DATE}
+<input name="{$field->name()}" type="text" class="{$field->attribute('css')} form-field date{if $field->isRequired()} required{/if}" value="{$field->value()}" data-format-datepicker="{$field->getDateFormat(AraFormField::DATE_FORMAT_DATEPICKER)}" data-format-momentjs="{$field->getDateFormat(AraFormField::DATE_FORMAT_MOMENTJS)}" {if $field->attribute('placeholder')} placeholder="{$field->attribute('placeholder')}"{/if}/>
+{elseif $field->type() == AraFormField::TYPE_SELECT}
+<select name="{$field->name()}" class="{$field->attribute('css')} form-field{if $field->isRequired()} required{/if}">
+	{foreach $field->attribute('values') as $option}
+	<option value="{$option@key}">{$option}</option>
+	{/foreach}
+</select>
+{elseif $field->type() == AraFormField::TYPE_CHECK}
+	{if count($field->attribute('values')) > 1}
+<div id="{$field->name()}" class="{if $field->isRequired()} required{/if}"{if $field->attribute('size')} data-amount="{$field->attribute('size')}"{/if}{if $field->attribute('min_size')} data-min-amount="{$field->attribute('min_size')}"{/if}{if $field->attribute('max_size')} data-max-amount="{$field->attribute('max_size')}"{/if}>
+		{foreach $field->attribute('values') as $option}
+	<input id="{$field->id()}_{$option@key}" name="{$field->name()}[]" type="checkbox" class="{$field->attribute('css')} form-field" value="{$option@key}" data-fieldgroup="#{$field->name()}"/>
+	<label for="{$field->id()}_{$option@key}">{$option}</label>
+		{/foreach}
+</div>
+	{else}
+		{foreach $field->attribute('values') as $option}
+	<input id="{$field->id()}_{$option@key}" name="{$field->name()}" type="checkbox" class="{$field->attribute('css')} form-field{if $field->isRequired()} required{/if}" value="{$option@key}" />
+	<label for="{$field->id()}_{$option@key}">{$option}</label>
+		{/foreach}
+	{/if}
+{elseif $field->type() == AraFormField::TYPE_OPTION}
+<div id="{$field->name()}" class="{if $field->isRequired()} required{/if}">
+	{foreach $field->attribute('values') as $option}
+	<input id="{$field->id()}_{$option@key}" name="{$field->name()}" type="radio" class="{$field->attribute('css')} form-field" value="{$option@key}" data-fieldgroup="#{$field->name()}"/>
+	<label for="{$field->id()}_{$option@key}">{$option}</label>
+	{/foreach}
+</div>
+{elseif $field->type() == AraFormField::TYPE_PASSWORD}
+<input name="{$field->name()}" type="password" class="{$field->attribute('css')} form-field{if $field->isRequired()} required{/if}" value=""{if $field->attribute('placeholder')} placeholder="{$field->attribute('placeholder')}"{/if}/>
+{/if}

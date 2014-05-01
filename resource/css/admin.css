@@ -1,0 +1,488 @@
+root
+{
+    display: block;
+}
+
+/* CSS Document */
+*
+{
+	margin: 0;
+	padding: 0;
+}
+
+a
+{
+	text-decoration: none;
+/*	color: #900;*/
+}
+
+img { border: none; }
+
+body
+{
+	font-size: 14px;
+	font-family: Verdana, Helvetica, sans-serif;
+	text-align: center;
+/*	color: #333333;*/
+}
+
+#container
+{
+	margin: auto;
+	text-align: left;
+	position: relative;
+}
+
+#content
+{
+	padding: 15px;
+	padding-top: 0px;
+}
+
+#login
+{
+	text-align: center;
+}
+
+#logo
+{
+	padding: 15px;
+	text-align: center;
+}
+
+h1
+{
+	margin-bottom: 20px;
+	margin-top: 20px;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+#menu
+{
+	position: relative;
+	top: 20px;
+}
+
+#loginform
+{
+	margin: 0;
+	padding: 0;
+	margin-top: 50px;
+/*	border: 1px dashed #5E7650;*/
+}
+
+p
+{
+	margin: 10px;
+}
+
+#accordion
+{
+	font-size: 12px;
+}
+
+#btn_logout
+{
+	font-size: 12px;
+	background: url("eggplant/images/ui-bg_highlight-soft_100_dcd9de_1x100.png") repeat-x scroll 50% 50% #DCD9DE;
+    border: 1px solid #DCD9DE;
+    color: #665874;
+    font-weight: bold;
+	border-radius: 6px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+#btn_logout a
+{
+	font-size: 1em;
+    color: #665874;
+	text-decoration: none;
+    position: relative;
+	padding-right: 84px;
+	margin-left: 26px;
+}
+
+#btn_logout a span
+{
+    position: relative;
+    width: 132px;
+}
+
+#table_news
+{
+	border-bottom: 1px solid black;
+}
+
+table.tabella
+{
+	border-bottom:1px solid #000;
+	border-right:1px solid #000;
+}
+
+table.tabella td
+{
+	border:1px solid #000;
+	border-bottom:0;
+	border-right:0;
+	padding:5px;
+	text-align:left;
+}
+
+table.content_tab td
+{
+	padding-bottom: 20px;
+}
+
+.rosso { color:#900; }
+
+.error
+{
+	color: #C00;
+	margin-left: 5px;
+}
+
+form.form input[type="text"]
+{
+	width: 98%;
+}
+
+form.form textarea
+{
+	width: 98%;
+	height: 300px;
+}
+
+ul#msg_risultato
+{
+	border: 1px dashed #ff0000;
+	padding: 10px;
+	padding-left: 5px;
+}
+
+ul#msg_risultato li
+{
+	margin-left: 30px;
+	line-height: 1.4em;
+}
+
+#sortable { list-style-type: none; margin: 0; padding: 0; width: 300px; margin-bottom: 30px; position: relative; float: left; }
+#sortable li { margin: 0; margin-bottom: 3px; padding: 3px; padding-left: 1.5em; cursor: move; position: relative; float: left; width: 97%;}
+#sortable li span { position: absolute; margin-left: -1.3em; }
+
+#sortable li span.icone_btn
+{
+	position: relative;
+	float: right;
+	margin-left: 10px;
+}
+
+#sortable li span.img_btn
+{
+	position: relative;
+	float: left;
+}
+
+p#errore_testo_vuoto
+{
+	display: none;
+}
+
+#tabs
+{
+/*	width: 750px;*/
+	width: 100%;
+	height: auto;
+	font-size: 11px;
+}
+
+#tabs textarea
+{
+/*	width: 320px;*/
+	width: 380px;
+	height: 200px;
+}
+
+#tabs select, #tabs input, #tabs textarea
+{
+	border: 1px solid #ccc;
+}
+
+#tabs .even
+{
+	background-color: white;
+}
+
+#tabs .odd
+{
+	background-color: #eee;
+}
+
+div.editor
+{
+	width: 100%;
+    margin: 10px 0px;
+}
+
+div.editor input
+{
+	width: 100%;
+	height: 2em;
+}
+
+.inline
+{
+	display: inline-block;
+}
+
+.btn_editor
+{
+	background: url('../img/sprite_btn_admin.png') no-repeat;
+	width: 26px;
+	height: 26px;
+	margin-bottom: 3px;
+	display: inline-block;
+	vertical-align: top;
+}
+
+div#btn_editor
+{
+	cursor: pointer;
+	display: inline-block;
+	vertical-align: top;
+	width: 56px;
+	height: auto;
+	margin-left: 3px;
+}
+
+#btn_strong
+{
+	background-position: 0px 0px;
+}
+
+#btn_strong:hover
+{
+	background-position: 0px -34px;
+}
+
+#btn_i
+{
+	background-position: -33px 0px;
+}
+
+#btn_i:hover
+{
+	background-position: -33px -34px;
+}
+
+#btn_underlined
+{
+	background-position: -66px 0px;
+}
+
+#btn_underlined:hover
+{
+	background-position: -66px -34px;
+}
+
+#btn_list
+{
+	background-position: -100px 0px;
+}
+
+#btn_list:hover
+{
+	background-position: -100px -34px;
+}
+
+#btn_paste
+{
+	background-position: -134px 0px;
+}
+
+#btn_paste:hover
+{
+	background-position: -134px -34px;
+}
+
+#btn_a
+{
+	background-position: -167px 0px;
+}
+
+#btn_a:hover
+{
+	background-position: -167px -34px;
+}
+
+#btn_p_left
+{
+	background-position: -202px 0px;
+}
+
+#btn_p_left:hover
+{
+	background-position: -202px -34px;
+}
+
+#btn_p_right
+{
+	background-position: -236px 0px;
+}
+
+#btn_p_right:hover
+{
+	background-position: -236px -34px;
+}
+
+#btn_p_center
+{
+	background-position: -271px 0px;
+}
+
+#btn_p_center:hover
+{
+	background-position: -271px -34px;
+}
+
+#btn_p_justify
+{
+	background-position: -305px 0px;
+}
+
+#btn_p_justify:hover
+{
+	background-position: -305px -34px;
+}
+
+#btn_save
+{
+	width: 56px;
+	background-position: -339px 0px;
+}
+
+#btn_save:hover
+{
+	background-position: -339px -34px;
+}
+
+div.table
+{
+	height: 320px;
+}
+
+div.table tr
+{
+	height: 20px;
+}
+
+div.table td span.ui-icon
+{
+	cursor: pointer;
+	display: inline-block;
+}
+
+div.table td input
+{
+	width: 100%;
+	border: 1px solid #ccc;
+	padding: 2px;
+}
+
+div.table td.operazioni
+{
+	text-align: center;
+}
+
+.table td.operazioni a
+{
+	color: #333;
+	text-decoration: none;
+}
+
+div.table td.operazioni .loading
+{
+	height: 16px;
+	width: 16px;
+	display: none;
+}
+
+div.position
+{
+	width: 400px;
+	height: 40px;
+	border: 1px dashed #c5ac4a;
+	text-align: center;
+}
+
+span.title {
+	display: block;
+	margin: 20px;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.divider {
+	height: 0px;
+	width: 100%;
+	border-top: 2px dashed #C00;
+	position: absolute;
+	margin-left: -18px;
+}
+
+/*
+	ARAFramework addition
+*/
+
+table.dataTable .glyphicon {
+	font-size: 24px;
+	cursor: pointer;
+}
+
+table.dataTable .loading {
+	vertical-align: baseline;
+	display: none;
+}
+
+.file-container {
+	position: relative;
+}
+
+.file-container h3 {
+}
+
+.file-container input[type="file"] {
+	position: absolute;
+	z-index: 2;
+	opacity: 0;
+	top: 0;
+	cursor: pointer;
+}
+
+.legenda {
+	font-size: 16px;
+	text-align: right;
+}
+
+.legenda span {
+	font-size: 24px;
+}
+
+.h200 {
+	max-height: 200px;
+}
+
+.content {
+	margin: 0px 15px;
+	text-align: left;
+}
+
+.panel-title .glyphicon {
+	margin-right: 15px;
+}
+
+.list-group-item[data-toggle="collapse"],
+.panel-title[data-toggle="collapse"] {
+	cursor: pointer;
+}

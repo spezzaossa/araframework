@@ -1,0 +1,56 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title" data-toggle="collapse" data-target="#aggiungi-slug"><span class="glyphicon glyphicon-chevron-up"></span>Aggiungi/Modifica URL personalizzato</h3>
+	</div>
+	<div id="aggiungi-slug" class="panel-collapse collapse in">
+		<div class="panel-body">
+			<form action="admin-slugs-edit" method="post">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group slug">
+							<label class="col-sm-2 control-label">URL personalizzato</label>
+							<div class="col-sm-4">
+								<input type="text" class="form-control" name="slug" placeholder="URL personalizzato" />
+								<span class="help-block"></span>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label">URL destinazione</label>
+							<div class="col-sm-4">
+								<input type="text" class="form-control" name="page_url" placeholder="URL destinazione" />
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<button class="save btn btn-default" id="save">Crea/Modifica</button>
+						<input type="hidden" name="id" value="0" />
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title" data-toggle="collapse" data-target="#elenco-slug"><span class="glyphicon glyphicon-chevron-up"></span>URL personalizzati esistenti</h3>
+	</div>
+	<div id="elenco-slug" class="panel-collapse collapse in">
+		<div class="panel-body">
+			<table class="table table-striped table-bordered" cellpadding="0" cellspacing="0" border="0" id="slugs">
+				<thead>
+					<tr>
+						<th>URL personalizzato</th>
+						<th>URL destinazione</th>
+						<th>Operazioni</th>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+

@@ -1,0 +1,4 @@
+{foreach $pages as $page}
+<option value="{$page.id}" {if $depth}style="padding-left: {$depth*25}px"{/if}>{if $depth}&RightTee;&HorizontalLine; {/if}{$page.data.name}</option>
+	{if count($page.Children)}{include file=$tpl_options pages=$page.Children tpl_options=$tpl_options depth=$depth+1}{/if}
+{/foreach}

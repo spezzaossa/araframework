@@ -1,0 +1,98 @@
+<script src="resource/ckeditor/ckeditor.js"></script>
+<a href="admin-pages" class="btn btn-default"><span class="glyphicon glyphicon-arrow-left"></span> Indietro</a>
+<br/><br/>
+<form action="" method="post">
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title" data-toggle="collapse" data-target="#modifica"><span class="glyphicon glyphicon-chevron-up"></span>Modifica pagina {$the_page.data.name}</h3>
+	</div>
+	<div id="modifica" class="panel-collapse collapse in">
+		<div class="panel-body">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="checkbox">
+						<label for="editable"><strong>Pagina modificabile</strong></label>
+						<input type="checkbox" name="editable" id="editable" value="1"{if $the_page.editable} checked="checked"{/if}/>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="form-group">
+						<label>Nome:</label>
+						<input class="form-control" name="title" maxlength="500" value="{$the_page.data.name}" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title" data-toggle="collapse" data-target="#lingue"><span class="glyphicon glyphicon-chevron-up"></span>Dati per lingua</h3>
+	</div>
+	<div id="lingue" class="panel-collapse collapse in">
+		<div class="panel-body">
+			<h4>
+				Seleziona lingua:
+				<select name="table_lang">
+				{foreach $languages as $language}
+					<option value="{$language.id}">{$language.language}</option>
+				{/foreach}
+				</select>
+			</h4>
+			{foreach from=$languages item=language name=langs}
+			<div id="tabs-{$language['id']}" class="tab">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label>Alias:</label>
+							<input class="form-control" name="aliases[{$language['id']}]" maxlength="500" value="{if isset($aliases[$language['id']])}{$aliases[$language['id']].value}{/if}" />
+						</div>
+					</div>
+				</div>
+
+				{foreach from=$contents[$language['id']] item=content name=content}
+				<div class="panel panel-info">
+					<div class="panel-heading">
+						<h3 class="panel-title" data-toggle="collapse" data-target="#page-content-{$content['sort_order']}"><span class="glyphicon glyphicon-chevron-down"></span>$page_content_{$content['sort_order']}</h3>
+					</div>
+					<div id="page-content-{$content['sort_order']}" class="panel-collapse collapse">
+						<div class="panel-body">
+							<div class="content-area">
+								<div class="editor inline">
+									<div class="input-group">
+										<span class="input-group-addon">Tag:</span>
+										<input class="form-control" name="contents[[{$content['id']}]][tag]" maxlength="500" value="{$content['tag']|escape}" />
+									</div>
+									<br/>
+									<div class="input-group">
+										<span class="input-group-addon">Titolo sezione:</span>
+										<input class="form-control" name="contents[{$content['id']}][title]" maxlength="500" value="{$content['title']|escape}" />
+									</div>
+									<h5>Contenuto sezione:</h5>
+									<textarea class="content" name="contents[{$content['id']}][content]" rows="10" cols="40" content="{$content['id']}">{$content['content']}</textarea>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+<!--			{if $smarty.foreach.content.last}<br/>{else}<br/><div class="divider"></div>{/if}-->
+				<br/>
+				{/foreach}
+				<button type="submit" class="btn btn-default" name="action" value="{$language['id']}">Crea nuovo contenuto {$language.language}</button>
+			</div>
+			{/foreach}
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-12">
+		<button type="submit" class="btn btn-default" name="action" value="save">Salva modifiche</button>
+	</div>
+</div>
+</form>
+

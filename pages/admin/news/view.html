@@ -1,0 +1,59 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title" data-toggle="collapse" data-target="#aggiungi-notizia"><span class="glyphicon glyphicon-chevron-down"></span>Aggiungi notizia</h3>
+	</div>
+	<div id="aggiungi-notizia" class="panel-collapse collapse">
+		<div class="panel-body">
+			<div class="row">
+				<div class="col-md-8">
+					<form action="admin-news-edit" method="post">
+					<div class="news-add input-group">
+						<span class="input-group-addon">Data</span>
+						<input type="text" class="form-control date" name="date">
+						<span class="input-group-addon">Titolo</span>
+						<input type="text" class="form-control" name="title">
+						<span class="input-group-addon">Lingua</span>
+						<select class="form-control" name="lang">
+						{foreach $languages as $language}
+							<option value="{$language.id}">{$language.language}</option>
+						{/foreach}
+						</select>
+						<span class="input-group-btn">
+							<button id="new_entry" class="btn btn-default" type="submit" value="create">Crea</button>
+						</span>
+					</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title" data-toggle="collapse" data-target="#notizie"><span class="glyphicon glyphicon-chevron-up"></span>Notizie esistenti</h3>
+	</div>
+	<div id="notizie" class="panel-collapse collapse in">
+		<div class="panel-body">
+			<div class="col-md-12 legenda">
+				<span class="glyphicon glyphicon-edit" title="Modifica"></span> Modifica
+				<span class="glyphicon glyphicon-book traduzioni" title="Traduzioni"></span> Traduzioni
+				<span class="glyphicon glyphicon-trash delete" title="Elimina file"></span> Elimina
+			</div>
+			<br/>
+			<table class="table table-striped table-bordered" cellpadding="0" cellspacing="0" border="0" id="news">
+				<thead>
+					<tr>
+						<th>Data</th>
+						<th>Titolo</th>
+						<th>Lingua</th>
+						<th>Operazioni</th>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+

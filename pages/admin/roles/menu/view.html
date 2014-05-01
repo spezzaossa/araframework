@@ -1,0 +1,48 @@
+<a href="admin-roles" class="btn btn-default"><span class="glyphicon glyphicon-arrow-left"></span> Indietro</a>
+
+<h3>Menù per il ruolo {$role.name}</h3>
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title" data-toggle="collapse" data-target="#aggiungi"><span class="glyphicon glyphicon-chevron-down"></span>Aggiungi elemento</h3>
+	</div>
+	<div id="aggiungi" class="panel-collapse collapse">
+		<div class="panel-body">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="input-group">
+						<span class="input-group-addon">Etichetta</span>
+						<input type="text" class="form-control" name="label">
+						<span class="input-group-addon">Link</span>
+						<input type="text" class="form-control" name="link">
+						<span class="input-group-btn">
+							<button id="new_menu" class="btn btn-default" type="submit" value="create">Aggiungi</button>
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="panel panel-info">
+	<div class="panel-heading">
+		<h3 class="panel-title" data-toggle="collapse" data-target="#elementi"><span class="glyphicon glyphicon-chevron-up"></span>Elementi disponibili</h3>
+	</div>
+	<div id="elementi" class="panel-collapse collapse in">
+		<div class="panel-body">
+			<div id="all-menus" data-id="{$role.id}"></div>
+		</div>
+	</div>
+</div>
+
+<div class="panel panel-info">
+	<div class="panel-heading">
+		<h3 class="panel-title" data-toggle="collapse" data-target="#anteprima"><span class="glyphicon glyphicon-chevron-up"></span>Anteprima Men&ugrave;</h3>
+	</div>
+	<div id="anteprima" class="panel-collapse collapse in">
+		<div class="panel-body">
+			<div id="menu_preview" data-id="{$role.id}"></div>
+		</div>
+	</div>
+</div>
+

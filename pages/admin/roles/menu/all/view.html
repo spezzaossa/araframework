@@ -1,0 +1,4 @@
+<span class="trash btn btn-default">Trascina qui per eliminare <br/><span class="glyphicon glyphicon-trash"></span></span>
+{foreach $all_menus as $menu}
+	<span class="btn btn-default menu" data-id="{$menu.id}">{$menu.label}<br/><small><em>{$menu.link}</em></small></span>
+{/foreach}

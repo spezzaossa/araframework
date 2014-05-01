@@ -1,0 +1,57 @@
+<script type="text/javascript">
+	var ratio = {$width / $height};
+</script>
+
+<a href="admin-files" class="btn btn-default"><span class="glyphicon glyphicon-arrow-left"></span> Indietro</a>
+<br/><br/>
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title" data-toggle="collapse" data-target="#struttura"><span class="glyphicon glyphicon-chevron-up"></span>Ridimensionamento di {$file.filename}</h3>
+	</div>
+	<div id="struttura" class="panel-collapse collapse in">
+		<div class="panel-body">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="alert alert-danger"><strong>ATTENZIONE! L'immagine verrà sostituita!</strong></div>
+				</div>
+			</div>
+			<form action="" method="post">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="input-group">
+						<span class="input-group-addon">Larghezza</span>
+						<input type="text" class="form-control" name="width" value="{$width}">
+						<span class="input-group-addon">Altezza</span>
+						<input type="text" class="form-control" name="height" value="{$height}">
+						<span class="input-group-btn">
+							<button id="new_role" class="btn btn-default" type="submit">Ridimensiona</button>
+						</span>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<input id="proporzioni" type="checkbox" name="proporzioni" checked="checked">
+					<label for="proporzioni" class="label label-primary">Mantieni proporzioni</label>
+			<!--
+					<span class="label label-primary">Colore sfondo:</span>
+					<input type="radio" name="color" value="white" id="sfondo-bianco">
+					<label for="sfondo-bianco">Bianco</label>
+					<input type="radio" name="color" value="black" id="sfondo-nero" checked="checked">
+					<label for="sfondo-nero">Nero</label>+
+			-->
+				</div>
+			</div>
+			</form>
+			<br/>
+			<div class="row">
+				<div class="col-sm-12 col-md-6">
+					<a target="_blank" href="{$smarty.const.MEDIA_FOLDER}{$file.filename}?t={time()}" class="thumbnail">
+						<img src="{$smarty.const.MEDIA_FOLDER}{$file.filename}?t={time()}" />
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

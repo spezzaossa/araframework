@@ -1,0 +1,30 @@
+<nav class="navbar navbar-default col-md-12" role="navigation">
+	<div class="navbar-header">
+		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+		<a class="navbar-brand" href="#home">{$azienda}</a>
+	</div>
+
+	<div class="collapse navbar-collapse navbar-ex1-collapse">
+		<ul class="nav navbar-nav editable">
+			{foreach $menus as $menu}
+				{if !$menu.id_parent}
+			<li class="dropdown menu-entry" data-id="{$menu.id}">
+				<a href="{$menu.Menu.link}" class="dropdown-toggle" data-toggle="dropdown">{$menu.Menu.label} <b class="caret"></b><br/><small><em>{$menu.Menu.link}</em></small></a>
+				<ul class="dropdown-menu">
+					{foreach $menu.Children as $child}
+					<li class="menu-entry" data-id="{$child.id}"><a href="#{$child->Menu->link}">{$child->Menu->label}<br/><small><em>{$child.Menu.link}</em></small></a></li>
+					{/foreach}
+					<li><span class="receiver" data-parent="{$menu.id}"></span></li>
+				</ul>
+			</li>
+				{/if}
+			{/foreach}
+			<li><a class="receiver big"></a></li>
+		</ul>
+	</div>
+</nav>

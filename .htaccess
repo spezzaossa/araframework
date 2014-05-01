@@ -1,0 +1,13 @@
+RewriteEngine On
+Options +FollowSymlinks
+
+DirectoryIndex index.php index.html
+
+RewriteRule ^stats/.*$ - [L,NC]
+RewriteRule ^favicon.ico$ - [L,NC]
+RewriteRule ^robots.txt$ - [L,NC]
+RewriteRule ^_doctrinegen/createclasses.php$ - [L,NC]
+RewriteRule ^img/(.*)$ resource/img/$1 [L,NC]
+RewriteRule ^resource/(.*)$ - [L,NC]
+RewriteRule ^lib/min/index.php$ - [L,NC]
+RewriteRule ^(.*)$ index.php?page=$1 [L,QSA]

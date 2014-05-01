@@ -1,0 +1,63 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title" data-toggle="collapse" data-target="#aggiungi-dizionario"><span class="glyphicon glyphicon-chevron-down"></span>Aggiungi voce al Dizionario</h3>
+	</div>
+	<div id="aggiungi-dizionario" class="panel-collapse collapse">
+		<div class="panel-body">
+			<div class="row">
+				<div class="col-md-10">
+					<div class="dictionary-add input-group">
+						<span class="input-group-addon">Chiave</span>
+						<input type="text" class="form-control" name="name">
+						<span class="input-group-addon">Valore</span>
+						<input type="text" class="form-control" name="value">
+						<span class="input-group-addon">Lingua</span>
+						<select class="form-control" name="lang">
+						{foreach $languages as $language}
+							<option value="{$language.id}">{$language.language}</option>
+						{/foreach}
+						</select>
+						<span class="input-group-btn">
+							<button id="new_entry" class="btn btn-default" type="submit" value="create">Crea</button>
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title" data-toggle="collapse" data-target="#dizionario"><span class="glyphicon glyphicon-chevron-up"></span>Dizionario</h3>
+	</div>
+	<div id="dizionario" class="panel-collapse collapse in">
+		<div class="panel-body">
+			<div class="col-md-12 legenda">
+					<span class="glyphicon glyphicon-floppy-disk" title="Salva"></span> Salva modifiche
+					<span class="glyphicon glyphicon-remove" title="Annulla"></span> Annulla modifiche
+				</div>
+			<h4>
+				Seleziona lingua:
+				<select name="table_lang">
+				{foreach $languages as $language}
+					<option value="{$language.id}">{$language.language}</option>
+				{/foreach}
+				</select>
+			</h4>
+
+			<table class="table table-striped table-bordered" cellpadding="0" cellspacing="0" border="0" id="dictionary">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Chiave</th>
+						<th>Valore</th>
+						<th>Operazioni</th>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

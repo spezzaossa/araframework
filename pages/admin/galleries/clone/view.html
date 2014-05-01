@@ -1,0 +1,38 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title" data-toggle="collapse" data-target="#galleria"><span class="glyphicon glyphicon-chevron-up"></span>Clona Galleria (immagini: {count($original.Images)})</h3>
+	</div>
+	<div id="galleria" class="panel-collapse collapse in">
+		<div class="panel-body">
+			<div class="row">
+				<div class="col-md-12">
+					<form method="post" action="">
+						<div class="gallery-add input-group">
+							<input type="hidden" name="original_id" value="{$original.id}">
+							<span class="input-group-addon">Nome</span>
+							<input type="text" class="form-control" name="name" value="{$original.name}">
+							<span class="input-group-addon">Lingua</span>
+							<select class="form-control" name="lang">
+							{foreach $languages as $language}
+								<option value="{$language.id}">{$language.language}</option>
+							{/foreach}
+							</select>
+							<span class="input-group-addon">Pagina</span>
+							<select class="form-control" name="ref_page">
+								<option value="0">Nessuna</option>
+							{foreach $pages as $page}
+								<option value="{$page.id}">{ucwords($page.name)}</option>
+							{/foreach}
+							</select>
+							<span class="input-group-addon">Tag</span>
+							<input type="text" class="form-control" name="tag" value="{$original.tag}">
+							<span class="input-group-btn">
+								<button id="new_gallery" class="btn btn-default" type="submit" value="create">Clona</button>
+							</span>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

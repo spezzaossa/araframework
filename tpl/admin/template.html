@@ -1,0 +1,146 @@
+{if $error eq 'login'}
+<script type="text/javascript">
+	jQuery(function() {
+		alert('Username and password not correct');
+	});
+</script>
+{/if}
+
+<div class="content">
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1">
+			<div id="logo"><a href="admin"><img src="resource/img/logo-admin.png" alt="Logo {$azienda}" title="{$azienda}"/></a></div>
+	{if $admin_logged}
+		{if isset($superadmin)}
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#menu-admin" data-toggle="tab">Amministratore</a></li>
+			{foreach $roles as $role}
+			<li><a href="#role-{$role.id}" data-toggle="tab">{$role.name}</a></li>
+			{/foreach}
+		</ul>
+
+		<div class="tab-content">
+			<div class="tab-pane active" id="menu-admin">
+				<nav class="navbar navbar-default" role="navigation">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						{* <a class="navbar-brand" href="admin-home">{$azienda}</a> *}
+					</div>
+
+					<div class="collapse navbar-collapse navbar-ex1-collapse">
+						<ul class="nav navbar-nav">
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Amministrazione <span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li><a href="admin-users">Utenti</a></li>
+									<li><a href="admin-roles">Ruoli</a></li>
+									<li><a href="admin-pages">Pagine</a></li>
+								</ul>
+							</li>
+						</ul>
+						<span class="nav navbar-nav navbar-right">
+							<a href="admin-logout" class="btn btn-danger navbar-btn"><span class="glyphicon glyphicon-off"></span> Logout</a>&nbsp;
+						</span>
+					</div>
+				</nav>
+			</div>
+			{foreach $roles as $role}
+			<div class="tab-pane" id="role-{$role.id}">
+				<nav class="navbar navbar-default" role="navigation">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						{* <a class="navbar-brand" href="admin-home">{$azienda}</a> *}
+					</div>
+
+					<div class="collapse navbar-collapse navbar-ex1-collapse">
+						<ul class="nav navbar-nav editable">
+							{foreach $role.Menus as $menu}
+								{if !$menu.id_parent}
+									{if (preg_match('#\{(\w+)\}#', $menu.Menu.link, $match))}
+										{backController::getMenuBlock($match[1])}
+									{else}
+							<li class="dropdown menu-entry">
+										{if count($menu.Children) > 0}
+								<a href="{$menu.Menu.link}" class="dropdown-toggle" data-toggle="dropdown">{$menu.Menu.label} <b class="caret"></b></a>
+								<ul class="dropdown-menu">
+											{foreach $menu.Children as $child}
+									<li class="menu-entry"><a href="{$child->Menu->link}">{$child->Menu->label}</a></li>
+											{/foreach}
+								</ul>
+										{else}
+								<a href="{$menu.Menu.link}">{$menu.Menu.label}</a>
+										{/if}
+							</li>
+									{/if}
+								{/if}
+							{/foreach}
+						</ul>
+						<span class="nav navbar-nav navbar-right">
+							<a href="admin-logout" class="btn btn-danger navbar-btn"><span class="glyphicon glyphicon-off"></span> Logout</a>&nbsp;
+						</span>
+					</div>
+				</nav>
+			</div>
+			{/foreach}
+		</div>
+		{else}
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				{* <a class="navbar-brand" href="admin-home">{$azienda}</a> *}
+			</div>
+
+			<div class="collapse navbar-collapse navbar-ex1-collapse">
+				<ul class="nav navbar-nav">
+					{$menu}
+				</ul>
+				<span class="nav navbar-nav navbar-right">
+					<a href="admin-logout" class="btn btn-danger navbar-btn"><span class="glyphicon glyphicon-off"></span> Logout</a>&nbsp;
+				</span>
+			</div>
+		</nav>
+		{/if}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1">
+			{include file=$content}
+		</div>
+	</div>
+	{else}
+	<div id="login">
+		<p>Benvenuto nel pannello di controllo di {$azienda}.</p>
+		<p>Effettua il login per amministrare il tuo sito.</p>
+		<form id="loginform" action="admin-login" method="post">
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3">
+					<div class="input-group">
+						<span class="input-group-addon">Username</span>
+						<input type="text" class="form-control" id="login_user" name="username">
+						<span class="input-group-addon">Password</span>
+						<input type="password" class="form-control" id="login_pass" name="password">
+						<span class="input-group-btn">
+							<button class="btn btn-default" type="submit" value="login">Login</button>
+						</span>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+	{/if}
+</div>

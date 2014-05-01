@@ -1,0 +1,55 @@
+<a href="admin-galleries" class="btn btn-default"><span class="glyphicon glyphicon-arrow-left"></span> Indietro</a>
+<br/><br/>
+<form action="" method="post">
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title" data-toggle="collapse" data-target="#galleria"><span class="glyphicon glyphicon-chevron-up"></span>Galleria</h3>
+	</div>
+	<div id="galleria" class="panel-collapse collapse in">
+		<div class="panel-body">
+			<div class="row">
+				<div class="col-md-2">
+					<div class="form-group">
+						<label>Nome:</label>
+						<input class="form-control" name="name" value="{$gallery.name}" />
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="form-group">
+						<label>Lingua:</label>
+						<select class="form-control" name="lang">
+						{foreach $languages as $language}
+							<option value="{$language.id}"{if $language.id eq $gallery.id_language} selected="selected"{/if}>{$language.language}</option>
+						{/foreach}
+						</select>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="form-group">
+						<label>Pagina:</label>
+						<select class="form-control" name="ref_page">
+							<option value="0"></option>
+						{foreach $pages as $page}
+							<option value="{$page.id}"{if $page.id eq $gallery.id_page} selected="selected"{/if}>{ucwords($page.name)}</option>
+						{/foreach}
+						</select>
+					</div>
+				</div>
+				<div class="col-md-2">
+					<div class="form-group">
+						<label>Tag:</label>
+						<input class="form-control" name="tag" value="{$gallery.tag}" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-12">
+		<button class="save btn btn-default" id="save">Salva modifiche</button>
+	</div>
+</div>
+
+</form>
